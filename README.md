@@ -1,4 +1,4 @@
-# genie-dat
+# genie-dat-utils
 
 read and write age of empires .dat files in nodejs.
 send issues if there are any requests this package aims to be the most portable .dat file opener for AoE games.
