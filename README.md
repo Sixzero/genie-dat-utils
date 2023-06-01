@@ -1,6 +1,8 @@
 # genie-dat
 
-read and write age of empires .dat files
+read and write age of empires .dat files in nodejs.
+send issues if there are any requests this package aims to be the most portable .dat file opener for AoE games.
+currently fully supports AoE DE2 since 2023 Marc. 
 
 [Install](#install) - [Usage](#usage) - [Supported Formats](#supported-formats) -
 [Limitations](#limitations) - [API](#api) - [License: LGPL-3](#license)
@@ -19,13 +21,13 @@ read and write age of empires .dat files
 ## Install
 
 ```
-npm install genie-dat
+npm install genie-dat-utils
 ```
 
 ## Usage
 
 ```js
-var genieDat = require('genie-dat')
+var genieDat = require('genie-dat-utils')
 var buffer = require('fs').readFileSync('/path/to/empires2_x1_p1.dat')
 genieDat.load(buffer, (err, dat) => {
   console.log(dat.civilizations.map(civ => civ.name))
@@ -43,17 +45,17 @@ The data file format differs slightly between game versions. Versions supported 
 
 Age of Kings, SWGB, and the AoE1 and AoE:DE files are not yet supported. The goal is to expand support for these formats in the future.
 
-Parsing a large binary file like this is quite slow, it takes about 6 seconds on my machine. This is probably not inherent and just has to do with the way this library is implemented on top of [awestruct](https://github.com/goto-bus-stop/awestruct). Hopefully awestruct's performance can be improved in the future. You should cache the result if you need it often.
+Still write/save functionality is not done, but can be easily implemented using the existing codes.
 
 ## API
 
-### `genieDat.load(buffer, opts={}, cb)`
+`genieDat.load(buffer, opts={}, cb)`
 
 Decompress and load `buffer`, eg. a raw .dat file.
 
 `opts` can be an object with properties:
 
- - `version` - A version string listed under [Supported Formats](#supported-formats). Defaults to `aoc`.
+ - `version` - A version string listed under [Supported Formats](#supported-formats). Defaults to `aoede2`.
 
 `cb` is a Node-style callback receiving `(err, dat)`.
 `dat` is a plain object representing the dat file contents. `console.log()` it to find out what's in it. There is a lot of junk, some of the more useful properties are:
@@ -68,6 +70,14 @@ Decompress and load `buffer`, eg. a raw .dat file.
 ### `genieDat.loadRaw(buffer, opts={}, cb)`
 
 Load an already decompressed `buffer`. Use this if you manually did `zlib.inflateRaw` or got an uncompressed buffer through some other means. Otherwise it is identical to `genieDat.load`.
+
+## This project is forked from
+
+The original [genie-dat was forked by mrommel](https://github.com/mrommel/genie-dat#supported-formats), who made a lot of improvements, I could also fork that repo, but it would be confusing. Also for visibility purposes and to finally group efforts in portability of genie dat files, I propose this new github repository.
+
+## Support
+
+If newer version comes out from AoEDE2 we just copy the protocol from the official: [genieutils](https://github.com/Tapsa/genieutils)
 
 ## License
 

@@ -1,8 +1,13 @@
-# genie-dat change log
+# genie-dat-utils originally: genie-dat change log
 
 All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](http://semver.org/).
+
+## 0.5.0
+* AoE DE2 support.
+* Code improvements by adding better version supports.
+* Rename some fields.
 
 ## 0.4.0
 * Add root tech tree reading.

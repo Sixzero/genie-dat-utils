@@ -1,10 +1,10 @@
 {
-  "name": "genie-dat",
+  "name": "genie-dat-utils",
   "description": "read and write age of empires .dat files",
-  "version": "0.4.0",
-  "author": "Renée Kooi <renee@kooi.me>",
+  "version": "0.5.0",
+  "author": "Tamás Havlik <havliktomi@gmail.com>",
   "bugs": {
-    "url": "https://github.com/genie-js/genie-dat/issues"
+    "url": "https://github.com/Sixzero/genie-dat-utils/issues"
   },
   "dependencies": {
     "awestruct": "^1.1.0",
@@ -18,8 +18,10 @@
     "tap-spec": "^5.0.0",
     "tape": "^5.0.0"
   },
-  "homepage": "https://github.com/genie-js/genie-dat",
+  "homepage": "https://github.com/Sixzero/genie-dat-utils",
   "keywords": [
+    "aoe de",
+    "age-of-empires definitive edition",
     "age-of-empires",
     "aoc",
     "aoe",
@@ -33,7 +35,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/genie-js/genie-dat.git"
+    "url": "https://github.com/Sixzero/genie-dat-utils.git"
   },
   "scripts": {
     "prepare": "npm run build",
